@@ -1,4 +1,7 @@
 # vhci_hcd
+
+клон https://sourceforge.net/projects/usb-vhci/
+
 vhci_hcd
 This project consists of a Linux kernel driver and some user-mode libraries. They allow a process to create a virtual usb host controller. Real or virtual usb devices can be "plugged" into this controller.
 Screenshot thumbnail

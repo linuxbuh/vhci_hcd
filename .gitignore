@@ -1,0 +1,17 @@
+*.o
+*.ko
+*.mod.c
+*.o.cmd
+*.ko.cmd
+*.kdevses
+*.pcs
+*.symvers
+.tmp_versions
+/vhci-hcd.tag
+Module.markers
+modules.order
+/conf
+/*.tar.bz2
+/*.tar.gz
+/html
+*~

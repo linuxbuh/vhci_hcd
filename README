@@ -1,0 +1,10 @@
+Read INSTALL for build/install instructions.
+
+Web: http://sourceforge.net/p/usb-vhci/wiki/Home/
+     http://sourceforge.net/projects/usb-vhci/
+
+The native Linux userspace tools can be downloaded here:
+http://sourceforge.net/projects/usb-vhci/files/native%20libraries/
+
+The .NET userspace tools can be downloaded here:
+http://sourceforge.net/projects/usb-vhci/files/dotnet%20libraries/

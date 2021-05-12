@@ -1,0 +1,28 @@
+--- Kconfig.orig	2008-02-11 06:51:11.000000000 +0100
++++ Kconfig	2008-04-26 05:10:28.000000000 +0200
+@@ -199,6 +199,25 @@
+ 	  To compile this driver as a module, choose M here: the
+ 	  module will be called uhci-hcd.
+ 
++config USB_VHCI_HCD
++	tristate "VHCI HCD (Virtual Host Controller Interface) support"
++	depends on USB
++	---help---
++	  TODO: write some blahblah about what the module does
++
++	  To compile this driver as a module, choose M here: the
++	  module will be called usb-vhci-hcd.
++
++config USB_VHCI_IOCIFC
++	tristate "Usermode IOCTL-interface"
++	depends on USB_VHCI_HCD
++	default y
++	---help---
++	  TODO: write some blahblah about what the module does
++
++	  To compile this driver as a module, choose M here: the
++	  module will be called usb-vhci-iocifc.
++
+ config USB_U132_HCD
+ 	tristate "Elan U132 Adapter Host Controller"
+ 	depends on USB && USB_FTDI_ELAN

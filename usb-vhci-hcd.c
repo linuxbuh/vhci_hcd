@@ -19,7 +19,7 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#define DEBUG
+//#define DEBUG
 
 #include <linux/module.h>
 #include <linux/kernel.h>
@@ -1281,7 +1281,7 @@ int usb_vhci_apply_port_stat(struct usb_vhci_hcd *vhc, u16 status, u16 change, u
 EXPORT_SYMBOL_GPL(usb_vhci_apply_port_stat);
 
 #ifdef DEBUG
-static ssize_t show_debug_output(struct device_driver *drv, char *buf)
+static ssize_t debug_output_show(struct device_driver *drv, char *buf)
 {
 	if(buf != NULL)
 	{
@@ -1296,7 +1296,7 @@ static ssize_t show_debug_output(struct device_driver *drv, char *buf)
 	return 1;
 }
 
-static ssize_t store_debug_output(struct device_driver *drv, const char *buf, size_t count)
+static ssize_t debug_output_store(struct device_driver *drv, const char *buf, size_t count)
 {
 	if(count != 1 || buf == NULL) return -EINVAL;
 	switch(*buf)
@@ -1309,7 +1309,7 @@ static ssize_t store_debug_output(struct device_driver *drv, const char *buf, si
 	return -EINVAL;
 }
 
-static DRIVER_ATTR(debug_output, S_IRUSR | S_IWUSR, show_debug_output, store_debug_output);
+static DRIVER_ATTR_RW(debug_output);
 #endif
 
 static int __init init(void)

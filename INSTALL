@@ -3,6 +3,14 @@ Install as modules
 
 Just run
 
+  mkdir -p linux/"$(uname -r | cut -d'-' -f1)"/drivers/usb/core
+
+  cp /usr/src/linux-source-"$(uname -r | cut -d'-' -f1)"/include/linux/usb/hcd.h linux/"$(uname -r | cut -d'-' -f1)"/drivers/usb/core/
+
+  make KVERSION="$(uname -r)" KSRC=/usr/src/linux-source-"$(uname -r | cut -d'-' -f1)"
+
+or
+
   make
 
 and
@@ -16,6 +24,7 @@ The modules are called usb-vhci-hcd and usb-vhci-iocifc. Run
   modprobe usb-vhci-iocifc
 
 to load the modules.
+
 
 
 Patch into kernel

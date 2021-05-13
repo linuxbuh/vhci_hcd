@@ -7,6 +7,54 @@ This project consists of a Linux kernel driver and some user-mode libraries. The
 Screenshot thumbnail
 usb storage device forwarded to a virtual host controller
 
+Install as modules
+==================
+
+Just run
+
+  mkdir -p linux/"$(uname -r | cut -d'-' -f1)"/drivers/usb/core
+
+  cp /usr/src/linux-source-"$(uname -r | cut -d'-' -f1)"/include/linux/usb/hcd.h linux/"$(uname -r | cut -d'-' -f1)"/drivers/usb/core/
+
+  make KVERSION="$(uname -r)" KSRC=/usr/src/linux-source-"$(uname -r | cut -d'-' -f1)"
+
+or
+
+  make
+
+and
+
+  make install   # (as root)
+
+to build and install the modules for the currently running kernel.
+The modules are called usb-vhci-hcd and usb-vhci-iocifc. Run
+
+  modprobe usb-vhci-hcd &&
+  modprobe usb-vhci-iocifc
+
+to load the modules.
+
+
+
+Patch into kernel
+=================
+
+Run
+
+  make KVERSION=<VERSION> KSRC=<PATH_TO_KERNEL_SOURCE> patchkernel
+
+(replace <PATH_TO_KERNEL_SOURCE> with the actual path) to patch the vhci-hcd
+sources into the kernel source. If you want to do this for a kernel with a
+different version than the currently running one, then you need to create
+the config header first by running
+
+  make config
+
+and answering the few questions about the target kernel.
+
+
+
+
 Project Members:
 Bruse Geng
 Emil Lee
